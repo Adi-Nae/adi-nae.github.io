@@ -1,0 +1,173 @@
+body {  
+    font-family: Arial, 'Roboto', sans-serif;
+    text-align: center;  
+    font-size: 24px;
+    background: #000000; 
+    /* הגדרת עבריתי= */
+    direction: rtl;
+}
+
+
+#myTitle{
+     color: #FFFFFF;
+}
+ 
+table{
+    color: #FFFFFF;
+    background: linear-gradient(90deg, 
+     rgba(255, 255, 255, 0.1) 0%, 
+     rgba(255, 255, 255, 0.3) 25%, 
+     rgba(255, 255, 255, 0.3) 75%, 
+     rgba(255, 255, 255, 0.1) 100%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    border-spacing: 10px;
+    empty-cells: show;
+}
+
+td{
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #222222;
+}
+
+.empty{
+   visibility: hidden;
+    display: none;
+   empty-cells: hide; 
+   border: 0px solid transparent;
+   left: 0px;
+   top: 0px;
+   width: 0px;
+   height: 0px;
+}
+
+img{
+  width: 99%;
+  height: 98%;
+}
+
+div {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border-radius: 5px;
+  border: 5px solid transparent;
+  perspective: 1000px; /* הסר זאת אם אינך מעוניין באפקט התלת מימד */
+}
+
+.card {
+  position: relative;
+  transition: transform 2s;  /* זמן התפכות הכרטיס */
+  transform-style: preserve-3d; /* סגנון */
+  cursor: pointer;
+}
+
+.front, .back {
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* לספארי */
+}
+
+.front {
+  border: 3px double #FFFFFF;
+  background-image: url("PIC/card.jpg");
+    
+}
+
+.back {
+  border:5px double #00ff00;
+  transform: rotateY(180deg);
+}
+
+.back:hover, .front:hover {
+  bottom: 0px;
+  right: 0px;
+   box-shadow: 0px 0px 20px 1px #000; 
+}
+
+
+.hidden{
+    /* visibility: hidden; */
+    background-image: url("PIC/card.jpg");
+    border:2px outset #101010;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.5;
+    height: 200px;
+    width: 300px
+}
+
+button{
+    visibility: hidden;
+    color:#00ff00;
+    background: linear-gradient(90deg, 
+     rgba(255, 255, 255, 0.1) 0%, 
+     rgba(255, 255, 255, 0.3) 25%, 
+     rgba(255, 255, 255, 0.3) 75%, 
+     rgba(255, 255, 255, 0.1) 100%);
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    padding: 15px 30px;
+    box-shadow: 
+        0 0 2px 2px #999999, 
+        0 0 5px 5px #888888, 
+        5px 0 5px 5px #666666; 
+        -5px -5px 5px #888888;
+}
+
+#myError{
+    visibility: hidden;
+}
+
+/* אם המסך קטן - הקטנה של הכרטיסים */
+@media screen and (max-width: 818px) {
+    #myTitle{
+         font-size: 20px;
+    }
+    button{
+        padding: 7px 15px;  
+    }
+}
+
+/* אם המסך קטן מדי במקום טבלה הודעת שגיאה */
+@media screen and (max-width: 337px) { 
+    table{
+        visibility: hidden;
+    }
+    .visible img{
+    visibility: hidden;
+    }
+    
+    #myTitle{
+        visibility: hidden;
+    }
+    button{
+    visibility: hidden;
+    }
+    #myError{
+        color: #FFFFFF;
+        visibility: visible;
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+    }
+}
+
